@@ -1,0 +1,11 @@
+sympy
+numpy
+scipy
+matplotlib
+plotly
+pandas
+seaborn
+ipywidgets
+kaleido
+nbconvert
+python-docx

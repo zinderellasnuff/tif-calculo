@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+# Resultados temporales
+shared/results/*.tmp
+shared/plots/*.tmp
+shared/data/*.tmp
+
+# Backups
+*.bak
+*.backup
+
+# Compiled
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs
+*.log
+logs/
+
+# Videos grandes (usar Git LFS si es necesario)
+*.mp4
+*.avi
+*.mov
+
+# Archivos temporales de LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Node modules (si usas alguna herramienta JS)
+node_modules/
+
+# Secrets
+secrets/
+credentials/
+*.key
+*.pem
