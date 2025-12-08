@@ -1,124 +1,139 @@
-# 🧮 TIF Cálculo Fase III - Aplicaciones de la Derivada
+# 🧮 Plataforma Multi-Motor para Análisis de Derivadas
 
-**Plataforma Multi-Motor Dockerizada para Análisis Matemático Computacional**
+**Sistema Dockerizado de Análisis Matemático Computacional con Python, SageMath y GNU Octave**
 
-[![Universidad](https://img.shields.io/badge/Universidad-UCSM-blue)](https://ucsm.edu.pe)
-[![Curso](https://img.shields.io/badge/Curso-C%C3%A1lculo-green)](https://github.com)
 [![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)](https://www.docker.com/)
 [![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Lab-F37626?logo=jupyter)](https://jupyter.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit)](https://streamlit.io/)
 
 ---
 
 ## 📋 Tabla de Contenidos
 
-- [Descripción del Proyecto](#-descripción-del-proyecto)
-- [Objetivos Académicos](#-objetivos-académicos)
+- [Descripción](#-descripción)
+- [Características Principales](#-características-principales)
 - [Arquitectura del Sistema](#-arquitectura-del-sistema)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [Instalación y Configuración](#-instalación-y-configuración)
-- [Uso de la Plataforma](#-uso-de-la-plataforma)
+- [Tecnologías](#-tecnologías)
+- [Instalación](#-instalación)
+- [Uso](#-uso)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Funcionalidades Implementadas](#-funcionalidades-implementadas)
-- [Estado del Proyecto](#-estado-del-proyecto)
-- [Roadmap](#-roadmap)
-- [Ejemplos de Uso](#-ejemplos-de-uso)
-- [Contribución](#-contribución)
-- [Licencia](#-licencia)
+- [Ejemplos](#-ejemplos)
+- [Documentación](#-documentación)
 
 ---
 
-## 🎯 Descripción del Proyecto
+## 🎯 Descripción
 
-Este proyecto es un **Trabajo de Investigación Formativa (TIF)** para el curso de Cálculo Fase III de la Universidad Católica de Santa María (UCSM), año 2025. Implementa una plataforma computacional avanzada para el análisis de **aplicaciones de la derivada** utilizando múltiples motores de cálculo de software libre.
+Plataforma computacional avanzada para el **análisis automático de derivadas** y **estudio de funciones matemáticas**. Implementa múltiples motores de cálculo simbólico (Python/SymPy, SageMath, GNU Octave) en contenedores Docker aislados, con interfaz web interactiva desarrollada en Streamlit.
 
-### Tema Principal
-**Aplicaciones de la Derivada** - Capítulo 3 del texto guía
+El sistema permite analizar funciones matemáticas de forma automática, identificando:
+- Puntos críticos (máximos y mínimos)
+- Concavidad y puntos de inflexión
+- Asíntotas y comportamiento en el infinito
+- Trazo completo de curvas
+- Visualización interactiva con Plotly
 
-Secciones cubiertas:
-- **3.1** Valores Máximos y Mínimos
-- **3.3** Concavidad y Puntos de Inflexión
-- **3.5** Trazo de Curvas
+### Secciones Matemáticas Cubiertas
 
-### Autor
-**Aron**
-Universidad Católica de Santa María
-Curso: Cálculo 2025 - Fase III
+- **Sección 3.1**: Valores Máximos y Mínimos
+- **Sección 3.3**: Concavidad y Puntos de Inflexión
+- **Sección 3.5**: Trazo Completo de Curvas
 
 ---
 
-## 🎓 Objetivos Académicos
+## ✨ Características Principales
 
-### Objetivos Generales
-1. Implementar y comparar múltiples motores de cálculo simbólico para análisis de derivadas
-2. Desarrollar herramientas interactivas para visualización de conceptos matemáticos
-3. Automatizar el proceso de análisis de funciones usando criterios de derivación
-4. Crear una plataforma educativa accesible mediante contenedores Docker
+### 🎨 Dashboard Web Interactivo
+- Interfaz Streamlit sin necesidad de programar
+- Input de funciones con validación de sintaxis
+- Cálculo automático de derivadas de primer y segundo orden
+- Renderizado LaTeX de expresiones matemáticas
+- Gráficas interactivas con zoom y exportación
 
-### Objetivos Específicos
-- Calcular derivadas de primer y segundo orden de forma automática
-- Identificar y clasificar puntos críticos (máximos, mínimos, inflexión)
-- Analizar concavidad y monotonía de funciones
-- Generar visualizaciones interactivas de funciones y sus derivadas
-- Comparar resultados entre Python (SymPy), SageMath y GNU Octave
+### 🔬 Análisis Matemático Automatizado
+- **Detección de puntos críticos**: Resuelve f'(x) = 0 automáticamente
+- **Clasificación de extremos**: Usa criterio de segunda derivada
+- **Análisis de concavidad**: Identifica regiones cóncavas arriba/abajo
+- **Puntos de inflexión**: Detecta cambios de concavidad
+- **Tabla de intervalos**: Genera análisis tabular completo
+
+### 🖥️ Multi-Motor Computacional
+- **Python (SymPy)**: Cálculo simbólico en Jupyter Lab
+- **SageMath**: Sistema de álgebra computacional avanzado
+- **GNU Octave**: Computación numérica compatible con MATLAB
+- **Comparación de resultados**: Entre diferentes motores
+
+### 📊 Visualización Avanzada
+- Gráficas duales (función y derivadas)
+- Código de colores por concavidad
+- Marcado visual de puntos críticos
+- Animaciones y exportación a PNG/SVG
+
+### 🐳 Infraestructura Docker
+- Orquestación con Docker Compose
+- Servicios aislados y escalables
+- Volúmenes compartidos para datos
+- Red privada entre contenedores
+- Fácil despliegue y reproducibilidad
 
 ---
 
 ## 🏗️ Arquitectura del Sistema
 
-El proyecto utiliza una arquitectura **multi-contenedor basada en Docker** con 4 servicios principales:
-
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    Usuario / Navegador                   │
-└─────────────────────────────────────────────────────────┘
-                           │
-           ┌───────────────┴───────────────┐
-           │                               │
-      Puerto 8501                    Puerto 8888/8889
-           │                               │
-┌──────────▼──────────┐         ┌─────────▼──────────┐
-│   Streamlit App     │         │   Jupyter Lab      │
-│  (Dashboard Web)    │◄────────┤   (Python/SymPy)   │
-└─────────────────────┘         └────────────────────┘
-           │                               │
-           │         Volumen Compartido    │
-           │         (/shared)             │
-           └───────────────┬───────────────┘
-                           │
-           ┌───────────────┴───────────────┐
-           │                               │
-    ┌──────▼──────────┐         ┌─────────▼──────────┐
-    │   SageMath      │         │   GNU Octave       │
-    │   (Puerto 8889) │         │   (CLI)            │
-    └─────────────────┘         └────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                  Usuario / Navegador                      │
+└──────────────────────────────────────────────────────────┘
+                          │
+          ┌───────────────┴───────────────┐
+          │                               │
+     Puerto 8501                    Puerto 8888/8889
+          │                               │
+┌─────────▼──────────┐         ┌──────────▼─────────┐
+│  Streamlit App     │         │   Jupyter Lab      │
+│  (Dashboard Web)   │◄────────┤   (Python/SymPy)   │
+└────────────────────┘         └────────────────────┘
+          │                               │
+          │        Volumen Compartido     │
+          │           (/shared)           │
+          └───────────────┬───────────────┘
+                          │
+          ┌───────────────┴───────────────┐
+          │                               │
+   ┌──────▼─────────┐          ┌─────────▼──────────┐
+   │   SageMath     │          │   GNU Octave       │
+   │  (Puerto 8889) │          │   (CLI)            │
+   └────────────────┘          └────────────────────┘
 ```
 
 ### Componentes
 
-| Servicio | Puerto | Tecnología | Función |
-|----------|--------|------------|---------|
-| **Streamlit** | 8501 | Python 3.11 + Streamlit | Dashboard web interactivo |
-| **Jupyter Lab** | 8888 | Python 3.x + SciPy Stack | Notebooks de análisis matemático |
-| **SageMath** | 8889 | Sage + Jupyter | Sistema de álgebra computacional avanzado |
-| **GNU Octave** | - | Octave 7.x | Computación numérica (CLI) |
+| Servicio | Puerto | Descripción | Función Principal |
+|----------|--------|-------------|-------------------|
+| **Streamlit** | 8501 | Dashboard Web | Interfaz interactiva para usuarios |
+| **Jupyter Lab** | 8888 | Python + SymPy | Notebooks de análisis matemático |
+| **SageMath** | 8889 | CAS Avanzado | Cálculo simbólico potente |
+| **GNU Octave** | CLI | Computación Numérica | Scripts MATLAB-compatible |
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías
 
 ### Backend / Motores Computacionales
 
-#### Python (Jupyter Lab)
-- **SymPy**: Cálculo simbólico (derivadas, límites, integrales)
-- **NumPy**: Computación numérica eficiente
-- **SciPy**: Algoritmos científicos y optimización
-- **Matplotlib**: Visualización estática
-- **Plotly**: Gráficas interactivas
-- **Pandas**: Manipulación de datos tabulares
+#### Python Stack
+- **SymPy** 1.12: Cálculo simbólico (derivadas, límites, integrales)
+- **NumPy** 1.24: Computación numérica eficiente
+- **SciPy** 1.11: Algoritmos científicos y optimización
+- **Matplotlib** 3.7: Visualización estática
+- **Plotly** 5.15: Gráficas interactivas 3D
+- **Pandas** 2.0: Manipulación de datos
 
 #### SageMath
 - Sistema de Álgebra Computacional (CAS) open-source
 - Integra 100+ librerías matemáticas
+- Sintaxis Python-compatible
 - Ideal para cálculo simbólico avanzado
 
 #### GNU Octave
@@ -128,88 +143,56 @@ El proyecto utiliza una arquitectura **multi-contenedor basada en Docker** con 4
 
 ### Frontend
 
-#### Streamlit
-- Framework Python para aplicaciones web
-- Actualización en tiempo real
-- Widgets interactivos
-- Renderizado de LaTeX y gráficas
+#### Streamlit 1.28
+- Framework Python para apps web
+- Actualización reactiva en tiempo real
+- Widgets interactivos integrados
+- Renderizado de LaTeX matemático
 
 ### Infraestructura
 
-- **Docker** y **Docker Compose**: Orquestación de contenedores
+- **Docker** 20.10+: Contenedorización
+- **Docker Compose** 2.x: Orquestación multi-servicio
 - **Git**: Control de versiones
-- **Linux**: Plataforma de desarrollo
 
 ---
 
-## 🚀 Instalación y Configuración
+## 🚀 Instalación
 
 ### Prerrequisitos
 
 ```bash
 # Versiones mínimas requeridas
 docker --version          # Docker 20.10+
-docker-compose --version  # Docker Compose 1.29+
+docker-compose --version  # Docker Compose 2.0+
 git --version            # Git 2.30+
 ```
 
-### Instalación Paso a Paso
-
-#### 1. Clonar el Repositorio
+### Instalación Rápida
 
 ```bash
+# 1. Clonar repositorio
 git clone https://github.com/tu-usuario/tif-calculo-fase3.git
 cd tif-calculo-fase3
-```
 
-#### 2. Configurar Variables de Entorno
-
-```bash
-# Copiar archivo de ejemplo
+# 2. Configurar variables de entorno (opcional)
 cp .env.example .env
+# Editar .env si deseas cambiar puertos o tokens
 
-# Editar si es necesario (opcional)
-nano .env
-```
-
-Contenido de `.env`:
-```bash
-JUPYTER_TOKEN=calculo2025
-JUPYTER_PORT=8888
-STREAMLIT_PORT=8501
-SAGE_PORT=8889
-```
-
-#### 3. Construir Contenedores
-
-```bash
-# Construir todas las imágenes
-docker-compose build
-
-# Construcción con caché limpio (si hay problemas)
-docker-compose build --no-cache
-```
-
-#### 4. Levantar Servicios
-
-```bash
-# Iniciar todos los servicios
+# 3. Construir e iniciar servicios
 docker-compose up -d
 
-# Ver logs en tiempo real
-docker-compose logs -f
-
-# Ver logs de un servicio específico
-docker-compose logs -f streamlit
+# 4. Verificar estado
+docker-compose ps
 ```
 
-#### 5. Verificar Estado
+### Verificación de Instalación
 
 ```bash
-# Ver contenedores en ejecución
+# Todos los servicios deben estar "Up"
 docker-compose ps
 
-# Resultado esperado:
+# Salida esperada:
 # NAME              STATUS    PORTS
 # tif-jupyter       Up        0.0.0.0:8888->8888/tcp
 # tif-streamlit     Up        0.0.0.0:8501->8501/tcp
@@ -219,68 +202,71 @@ docker-compose ps
 
 ---
 
-## 💻 Uso de la Plataforma
+## 💻 Uso
 
-### Acceso a los Servicios
+### Acceso Rápido
 
-#### 1. Dashboard Streamlit (Recomendado para empezar)
+#### 1. Dashboard Web (Recomendado)
 ```
 URL: http://localhost:8501
 ```
-- Interfaz web interactiva
-- Sin necesidad de programar
-- Análisis inmediato de funciones
-- Visualización automática
 
 **Funcionalidades:**
-- Pestaña **Análisis**: Calculadora interactiva de derivadas
-- Pestaña **Ejemplos**: Funciones predefinidas del curso
-- Pestaña **Ayuda**: Sintaxis y guía de uso
+- ✅ Pestaña **Análisis**: Calculadora de máximos y mínimos
+- ✅ Pestaña **Concavidad**: Análisis de curvatura
+- ✅ Pestaña **Trazo Completo**: Análisis integral en 6 pasos
+- ✅ Pestaña **Ejemplos**: Funciones predefinidas
+- ✅ Pestaña **Ayuda**: Sintaxis y troubleshooting
 
-#### 2. Jupyter Lab (Para análisis avanzado)
+**Ejemplo de uso:**
+1. Ingresa función: `x**3 - 3*x**2 - 9*x + 5`
+2. Define intervalo: `[-5, 5]`
+3. Clic en "Analizar"
+4. Obtén derivadas, puntos críticos y gráfica
+
+#### 2. Jupyter Lab (Análisis Avanzado)
 ```
 URL: http://localhost:8888
 Token: calculo2025
 ```
-- Notebooks interactivos
-- Código Python ejecutable
-- Exportación a PDF/HTML
-- Documentación académica
 
 **Notebooks disponibles:**
-- `01_maximos_minimos.ipynb`: Sección 3.1 del curso
+- `01_maximos_minimos.ipynb`: Ejemplos resueltos paso a paso
+- `02_concavidad.ipynb`: Análisis de curvatura
+- `03_trazo_curvas.ipynb`: Trazo completo de funciones
 
 #### 3. SageMath Jupyter
 ```
 URL: http://localhost:8889
 Token: calculo2025
 ```
-- CAS avanzado con sintaxis Python
-- Notebooks .sage
-- Cálculo simbólico potente
 
-#### 4. GNU Octave (Línea de comandos)
+**Notebooks SageMath:**
+- `00_comparativa_python_sage.ipynb`: Comparación de motores
+- `01_maximos_minimos_sage.ipynb`: Ejemplos con Sage
+
+#### 4. GNU Octave (CLI)
 ```bash
 # Acceder al contenedor
-docker exec -it tif-octave octave
+docker exec -it tif-octave octave-cli
 
 # Ejecutar script
-docker exec -it tif-octave octave /workspace/mi_script.m
+docker exec -it tif-octave octave /workspace/scripts/maximos_minimos.m
 ```
 
-### Ejemplo de Flujo de Trabajo
+### Flujo de Trabajo Típico
 
 ```bash
 # 1. Iniciar servicios
 docker-compose up -d
 
-# 2. Abrir navegador en http://localhost:8501
-#    → Usar dashboard para análisis rápido
+# 2. Análisis rápido → http://localhost:8501
+#    Ingresar función y obtener resultados inmediatos
 
-# 3. Para análisis detallado: http://localhost:8888
-#    → Abrir notebook 01_maximos_minimos.ipynb
+# 3. Análisis detallado → http://localhost:8888
+#    Abrir notebooks para estudio paso a paso
 
-# 4. Al finalizar
+# 4. Detener servicios
 docker-compose down
 ```
 
@@ -292,439 +278,334 @@ docker-compose down
 tif-calculo-fase3/
 │
 ├── docker-compose.yml           # Orquestación de servicios
-├── .env                         # Variables de entorno
-├── .env.example                # Plantilla de configuración
-├── .gitignore                  # Exclusiones de Git
-├── README.md                   # Este archivo
+├── .env                         # Variables de entorno (no en repo)
+├── .env.example                 # Plantilla de configuración
+├── .gitignore                   # Exclusiones de Git
+├── README.md                    # Documentación principal
 │
-├── docs/                       # 📄 Documentación del proyecto
-│   ├── informe_final.pdf      # (PENDIENTE) Trabajo escrito
-│   ├── manual_usuario.md      # (PENDIENTE) Guía detallada
-│   └── referencias.bib        # (PENDIENTE) Bibliografía
+├── docs/                        # 📄 Documentación técnica
+│   └── INFORME_FINAL.md         # Informe técnico del proyecto
 │
-├── scripts/                    # 🔧 Scripts de utilidad
-│   ├── setup.sh               # (PENDIENTE) Instalación automatizada
-│   ├── export_results.py      # (PENDIENTE) Exportar a PDF/Word
-│   └── cleanup.sh             # (PENDIENTE) Limpieza de contenedores
+├── scripts/                     # 🔧 Scripts de utilidad
+│   ├── setup.sh                 # Instalación automatizada
+│   ├── export_results.py        # Exportar a PDF/Word
+│   └── cleanup.sh               # Limpieza de contenedores
 │
-├── services/                   # 🐳 Servicios Dockerizados
+├── services/                    # 🐳 Servicios Dockerizados
 │   │
-│   ├── jupyter/               # Motor Python principal
+│   ├── jupyter/                 # Motor Python principal
 │   │   ├── Dockerfile
 │   │   ├── requirements.txt
 │   │   └── notebooks/
-│   │       ├── 01_maximos_minimos.ipynb        # ✅ Implementado
-│   │       ├── 02_concavidad.ipynb             # ❌ PENDIENTE
-│   │       └── 03_trazo_curvas.ipynb           # ❌ PENDIENTE
+│   │       ├── 01_maximos_minimos.ipynb
+│   │       ├── 02_concavidad.ipynb
+│   │       └── 03_trazo_curvas.ipynb
 │   │
-│   ├── streamlit/            # Dashboard web
+│   ├── streamlit/               # Dashboard web
 │   │   ├── Dockerfile
 │   │   ├── requirements.txt
-│   │   ├── app.py            # ✅ Aplicación principal
-│   │   └── shared/           # (Vacío) Módulos compartidos
+│   │   └── app.py               # Aplicación principal
 │   │
-│   ├── sagemath/             # CAS avanzado
-│   │   └── notebooks/        # ❌ PENDIENTE - Sin notebooks
+│   ├── sagemath/                # CAS avanzado
+│   │   ├── start-notebook.sh
+│   │   └── notebooks/
+│   │       ├── 00_comparativa_python_sage.ipynb
+│   │       └── 01_maximos_minimos_sage.ipynb
 │   │
-│   └── octave/               # Computación numérica
+│   └── octave/                  # Computación numérica
 │       ├── Dockerfile
-│       └── scripts/          # ❌ PENDIENTE - Sin scripts .m
+│       └── scripts/
+│           ├── maximos_minimos.m
+│           ├── concavidad.m
+│           └── README.md
 │
-└── shared/                   # 📊 Archivos compartidos entre servicios
-    ├── animations/           # (Vacío) Animaciones de funciones
-    ├── data/                 # (Vacío) Datasets de prueba
-    ├── plots/                # (Vacío) Gráficas exportadas
-    └── results/              # (Vacío) Resultados de análisis
+└── shared/                      # 📊 Archivos compartidos entre servicios
+    ├── animations/              # Animaciones generadas
+    ├── data/                    # Datasets de funciones
+    │   ├── funciones_ejemplos.json
+    │   └── README.md
+    ├── plots/                   # Gráficas exportadas
+    └── results/                 # Resultados de análisis
 ```
 
-### Convenciones de Archivos
-
-- **✅ Implementado**: Funcionalidad completa
-- **🚧 En Progreso**: Parcialmente implementado
-- **❌ PENDIENTE**: No implementado
-- **(Vacío)**: Directorio sin contenido
-
 ---
 
-## ✨ Funcionalidades Implementadas
+## 📚 Ejemplos
 
-### Dashboard Streamlit (app.py)
-
-#### Análisis Automático de Funciones
-- ✅ Input de función matemática con validación
-- ✅ Cálculo de primera derivada f'(x)
-- ✅ Cálculo de segunda derivada f''(x)
-- ✅ Renderizado LaTeX de expresiones matemáticas
-- ✅ Configuración de intervalo [a, b]
-
-#### Detección de Puntos Críticos
-- ✅ Solución de f'(x) = 0
-- ✅ Filtrado de soluciones reales
-- ✅ Evaluación de f(x) en puntos críticos
-- ✅ Clasificación usando criterio de segunda derivada:
-  - f''(x) > 0 → Mínimo local
-  - f''(x) < 0 → Máximo local
-  - f''(x) = 0 → Punto de inflexión
-
-#### Visualización Interactiva
-- ✅ Gráfica dual (f(x) y f'(x)) con Plotly
-- ✅ Marcado visual de puntos críticos
-- ✅ Zoom y pan interactivos
-- ✅ Exportación de gráficas
-
-#### Interfaz de Usuario
-- ✅ Diseño responsivo de 3 pestañas
-- ✅ Ejemplos predefinidos del PDF
-- ✅ Sintaxis de ayuda
-- ✅ Manejo de errores
-
-### Jupyter Notebook (01_maximos_minimos.ipynb)
-
-#### Ejemplos Implementados
-- ✅ **Ejemplo 2a**: f(x) = 2x³ + x² + 2x
-  - Números críticos
-  - Análisis de dominio de derivada
-
-- ✅ **Ejemplo 2b**: h(t) = t^(3/4) - 2t^(1/4)
-  - Puntos donde derivada no existe
-  - Raíces de derivada
-
-- ✅ **Ejemplo 3a**: f(x) = 3x² - 12x + 5 en [0,3]
-  - Valores máximos/mínimos absolutos
-  - Evaluación en extremos e interior
-  - Visualización completa
-
-- 🚧 **Ejemplo 3b**: INCOMPLETO
-
-#### Capacidades
-- ✅ Cálculo simbólico con SymPy
-- ✅ Gráficas interactivas con Plotly
-- ✅ Código educativo documentado
-- ✅ Análisis paso a paso
-
----
-
-## 📊 Estado del Proyecto
-
-### Resumen General
-
-```
-Progreso Total: ████████████░░░░░░░░  40%
-
-Infraestructura:  ████████████████████  100%
-Frontend:         ████████████████░░░░   80%
-Notebooks:        ████████░░░░░░░░░░░░   35%
-Documentación:    ████░░░░░░░░░░░░░░░░   20%
-```
-
-### Por Componente
-
-| Componente | Estado | Completado | Faltante |
-|------------|--------|------------|----------|
-| **Docker/Infraestructura** | ✅ Completo | 100% | - |
-| **Streamlit Dashboard** | ✅ Funcional | 80% | Conexión con otros motores |
-| **Jupyter - Sección 3.1** | 🚧 Parcial | 75% | Ejemplo 3b |
-| **Jupyter - Sección 3.3** | ❌ Pendiente | 0% | Todo |
-| **Jupyter - Sección 3.5** | ❌ Pendiente | 0% | Todo |
-| **SageMath** | ❌ Pendiente | 0% | Notebooks |
-| **Octave** | ❌ Pendiente | 0% | Scripts |
-| **Documentación** | ❌ Pendiente | 20% | Informe, manual |
-| **Scripts Utilidad** | ❌ Pendiente | 0% | Todo |
-
-### Funcionalidades Operativas
-
-✅ **Funcionando:**
-- Cálculo automático de derivadas (SymPy)
-- Dashboard web interactivo
-- Análisis de máximos/mínimos básico
-- Visualización de funciones
-- Contenedores Docker
-
-❌ **Pendiente:**
-- Análisis de concavidad
-- Trazo completo de curvas
-- Comparación entre motores
-- Exportación a PDF/Word
-- Animaciones
-- Tests/validación
-- Documentación académica
-
----
-
-## 🗺️ Roadmap
-
-### Fase 1: Completar Contenido Académico (PRIORITARIO)
-
-#### Notebooks Jupyter
-
-- [ ] **01_maximos_minimos.ipynb**
-  - [x] Ejemplo 2a y 2b
-  - [x] Ejemplo 3a
-  - [ ] **Ejemplo 3b: f(x) = 2x³ - 3x² - 12x + 1 en [-2,3]**
-  - [ ] Ejercicios adicionales del PDF
-
-- [ ] **02_concavidad.ipynb** (Sección 3.3)
-  - [ ] Definición y criterios
-  - [ ] Criterio de concavidad (f'' > 0 cóncava hacia arriba)
-  - [ ] Puntos de inflexión
-  - [ ] Ejemplos del texto guía
-  - [ ] Visualización de concavidad
-
-- [ ] **03_trazo_curvas.ipynb** (Sección 3.5)
-  - [ ] Estrategia completa de graficación
-  - [ ] Dominio, simetrías, asíntotas
-  - [ ] Monotonía y extremos
-  - [ ] Concavidad y puntos de inflexión
-  - [ ] Gráfica final integrada
-  - [ ] 3-5 ejemplos completos
-
-#### Implementación en Otros Motores
-
-- [ ] **SageMath**
-  - [ ] `sage/01_maximos_minimos.sage`
-  - [ ] `sage/02_concavidad.sage`
-  - [ ] `sage/03_trazo_curvas.sage`
-  - [ ] Notebook comparativo con Python
-
-- [ ] **GNU Octave**
-  - [ ] `octave/maximos_minimos.m`
-  - [ ] `octave/concavidad.m`
-  - [ ] `octave/trazo_curvas.m`
-  - [ ] Script de validación numérica
-
-### Fase 2: Documentación Académica
-
-- [ ] **Informe Final (PDF)**
-  - [ ] Marco teórico (derivadas, criterios)
-  - [ ] Metodología (software utilizado)
-  - [ ] Resultados (ejemplos resueltos)
-  - [ ] Análisis comparativo de motores
-  - [ ] Conclusiones y recomendaciones
-  - [ ] Bibliografía
-
-- [ ] **Manual de Usuario**
-  - [ ] Instalación detallada
-  - [ ] Guía de uso de cada servicio
-  - [ ] Ejemplos paso a paso
-  - [ ] Troubleshooting
-
-- [ ] **Documentación Técnica**
-  - [ ] Arquitectura del sistema
-  - [ ] API de módulos
-  - [ ] Guía de contribución
-
-### Fase 3: Mejoras Funcionales
-
-- [ ] **Integración entre Servicios**
-  - [ ] API REST para comunicación
-  - [ ] Ejecutar código Sage desde Streamlit
-  - [ ] Ejecutar código Octave desde Streamlit
-  - [ ] Comparación de resultados en tiempo real
-
-- [ ] **Exportación y Reportes**
-  - [ ] Script de exportación a PDF (nbconvert)
-  - [ ] Exportación a Word (.docx)
-  - [ ] Generación automática de informe
-  - [ ] Plantilla LaTeX profesional
-
-- [ ] **Visualizaciones Avanzadas**
-  - [ ] Animaciones de funciones
-  - [ ] Visualización 3D de superficies
-  - [ ] Sliders interactivos
-  - [ ] Comparación lado a lado
-
-### Fase 4: Scripts y Automatización
-
-- [ ] `scripts/setup.sh`: Instalación automatizada
-- [ ] `scripts/test_all.py`: Tests de validación
-- [ ] `scripts/export_results.py`: Exportación masiva
-- [ ] `scripts/cleanup.sh`: Limpieza de caché y logs
-- [ ] `scripts/compare_engines.py`: Benchmark de motores
-
-### Fase 5: Calidad y Testing
-
-- [ ] Tests unitarios (pytest)
-- [ ] Validación de resultados matemáticos
-- [ ] Tests de integración entre servicios
-- [ ] CI/CD con GitHub Actions
-
----
-
-## 📚 Ejemplos de Uso
-
-### Ejemplo 1: Análisis Rápido con Streamlit
+### Ejemplo 1: Análisis con Streamlit
 
 ```bash
-# 1. Iniciar servicios
+# 1. Abrir http://localhost:8501
+# 2. Pestaña "Análisis"
+# 3. Función: 2*x**3 - 3*x**2 - 12*x + 1
+# 4. Intervalo: [-2, 3]
+# 5. Click "Analizar"
+
+# Resultado:
+# - f'(x) = 6x² - 6x - 12
+# - f''(x) = 12x - 6
+# - Puntos críticos: x = -1 (máximo), x = 2 (mínimo)
+# - Gráfica interactiva con puntos marcados
+```
+
+### Ejemplo 2: Notebook Jupyter
+
+```python
+# En http://localhost:8888
+# Abrir: notebooks/01_maximos_minimos.ipynb
+
+import sympy as sp
+import numpy as np
+import plotly.graph_objects as go
+
+# Definir función
+x = sp.Symbol('x')
+f = x**3 - 3*x**2 - 9*x + 5
+
+# Calcular derivadas
+f_prime = sp.diff(f, x)
+f_double_prime = sp.diff(f_prime, x)
+
+# Encontrar puntos críticos
+critical_points = sp.solve(f_prime, x)
+print(f"Puntos críticos: {critical_points}")
+
+# Clasificar usando segunda derivada
+for point in critical_points:
+    second = f_double_prime.subs(x, point)
+    if second > 0:
+        print(f"x = {point}: Mínimo local")
+    elif second < 0:
+        print(f"x = {point}: Máximo local")
+```
+
+### Ejemplo 3: SageMath
+
+```python
+# En http://localhost:8889
+# SageMath notebook
+
+var('x')
+f = 2*x^3 - 3*x^2 - 12*x + 1
+
+# Derivadas
+f_prime = diff(f, x)
+f_double_prime = diff(f_prime, x)
+
+# Puntos críticos
+critical = solve(f_prime == 0, x)
+show(critical)
+
+# Gráfica
+plot(f, (x, -2, 3), color='blue', legend_label='f(x)')
+```
+
+### Ejemplo 4: GNU Octave
+
+```bash
+# Acceder al contenedor
+docker exec -it tif-octave octave-cli
+```
+
+```octave
+% En Octave CLI
+pkg load symbolic
+syms x
+f = 2*x^3 - 3*x^2 - 12*x + 1;
+
+% Derivada
+f_prime = diff(f, x)
+
+% Puntos críticos
+critical = solve(f_prime == 0, x)
+double(critical)
+```
+
+---
+
+## 🔧 Comandos Útiles
+
+### Gestión de Servicios
+
+```bash
+# Iniciar todos los servicios
 docker-compose up -d
 
-# 2. Abrir http://localhost:8501
+# Ver logs en tiempo real
+docker-compose logs -f
 
-# 3. En la pestaña "Análisis":
-#    - Función: 2*x**3 - 3*x**2 - 12*x + 1
-#    - Intervalo: [-2, 3]
-#    - Clic en "Analizar"
+# Ver logs de un servicio específico
+docker-compose logs -f streamlit
 
-# 4. Ver resultados:
-#    - Derivadas calculadas
-#    - Puntos críticos identificados
-#    - Gráfica interactiva
+# Reiniciar un servicio
+docker-compose restart jupyter
+
+# Detener todos los servicios
+docker-compose down
+
+# Reconstruir imágenes
+docker-compose build --no-cache
+
+# Ver estado de servicios
+docker-compose ps
 ```
 
-### Ejemplo 2: Análisis Detallado con Jupyter
+### Acceso a Contenedores
 
 ```bash
-# 1. Abrir http://localhost:8888 (token: calculo2025)
+# Bash en Jupyter
+docker exec -it tif-jupyter bash
 
-# 2. Navegar a: notebooks/01_maximos_minimos.ipynb
+# Octave CLI
+docker exec -it tif-octave octave-cli
 
-# 3. Ejecutar celdas paso a paso:
-#    - Importar librerías
-#    - Definir función
-#    - Calcular derivadas
-#    - Encontrar puntos críticos
-#    - Visualizar
+# SageMath
+docker exec -it tif-sagemath sage
 
-# 4. Modificar código según necesites
+# Ver archivos compartidos
+docker exec -it tif-jupyter ls -la /workspace/shared
 ```
 
-### Ejemplo 3: Usar SageMath
+### Debugging
 
 ```bash
-# Acceder al contenedor
-docker exec -it tif-sagemath bash
+# Ver logs completos de un servicio
+docker-compose logs --tail=100 jupyter
 
-# Iniciar Sage
-sage
+# Verificar red
+docker network inspect tif-calculo-fase3_calculo-network
 
-# Código Sage
-sage: var('x')
-sage: f = 2*x^3 - 3*x^2 - 12*x + 1
-sage: diff(f, x)
-# Output: 6*x^2 - 6*x - 12
-```
+# Verificar volúmenes
+docker volume ls
 
-### Ejemplo 4: Usar Octave
-
-```bash
-# Acceder al contenedor
-docker exec -it tif-octave octave
-
-# Código Octave
-octave> syms x
-octave> f = 2*x^3 - 3*x^2 - 12*x + 1
-octave> diff(f, x)
+# Probar conectividad
+curl http://localhost:8501
+curl http://localhost:8888
 ```
 
 ---
 
-## 🔧 Troubleshooting
+## 🔍 Troubleshooting
 
-### Problemas Comunes
+### Puerto ya en uso
 
-#### Error: Puerto ya en uso
 ```bash
 # Ver qué proceso usa el puerto
 sudo lsof -i :8888
 
 # Cambiar puerto en .env
 JUPYTER_PORT=8890
+docker-compose down && docker-compose up -d
 ```
 
-#### Contenedor no inicia
+### Contenedor no inicia
+
 ```bash
 # Ver logs detallados
 docker-compose logs jupyter
 
 # Reconstruir sin caché
 docker-compose build --no-cache jupyter
+docker-compose up -d
 ```
 
-#### Token de Jupyter no funciona
-```bash
-# Obtener token desde logs
-docker-compose logs jupyter | grep token
+### Error de dependencias
 
-# O usar el configurado en .env
-# Token por defecto: calculo2025
-```
-
-#### Dependencias faltantes
 ```bash
-# Reconstruir servicio específico
+# Reconstruir servicio
 docker-compose build streamlit
 
 # Verificar instalación
 docker exec -it tif-streamlit pip list
 ```
 
----
+### Token no funciona
 
-## 🤝 Contribución
+```bash
+# Ver token en logs
+docker-compose logs jupyter | grep token
 
-### Cómo Contribuir
-
-1. **Fork** el repositorio
-2. Crear rama feature: `git checkout -b feature/nueva-funcionalidad`
-3. Commit cambios: `git commit -m 'Agregar nueva funcionalidad'`
-4. Push a la rama: `git push origin feature/nueva-funcionalidad`
-5. Crear **Pull Request**
-
-### Guías de Estilo
-
-- Código Python: PEP 8
-- Commits: Conventional Commits
-- Documentación: Markdown con GitHub Flavored Markdown
+# Token por defecto: calculo2025
+# URL: http://localhost:8888?token=calculo2025
+```
 
 ---
 
-## 📖 Referencias
+## 📖 Documentación Adicional
 
-### Bibliografía del Curso
-- Stewart, J. (2012). *Cálculo de una variable: Trascendentes tempranas* (7ª ed.). Cengage Learning.
-- Larson, R., & Edwards, B. (2016). *Cálculo* (10ª ed.). Cengage Learning.
+### Sintaxis de Funciones
 
-### Documentación Técnica
+**Operaciones básicas:**
+```python
+x + 2          # Suma
+x - 3          # Resta
+2*x            # Multiplicación (usar *)
+x/2            # División
+x**2           # Potencia
+sqrt(x)        # Raíz cuadrada
+Abs(x)         # Valor absoluto
+```
+
+**Funciones especiales:**
+```python
+exp(x)         # Exponencial e^x
+log(x)         # Logaritmo natural ln(x)
+log(x, 10)     # Logaritmo base 10
+sin(x)         # Seno
+cos(x)         # Coseno
+tan(x)         # Tangente
+asin(x)        # Arcoseno
+acos(x)        # Arcocoseno
+atan(x)        # Arcotangente
+```
+
+**Constantes:**
+```python
+pi             # π ≈ 3.14159
+E              # e ≈ 2.71828
+```
+
+### Referencias Técnicas
+
 - [SymPy Documentation](https://docs.sympy.org)
 - [SageMath Documentation](https://doc.sagemath.org)
 - [GNU Octave Manual](https://docs.octave.org)
 - [Streamlit Documentation](https://docs.streamlit.io)
 - [Docker Compose Reference](https://docs.docker.com/compose)
+- [Plotly Python](https://plotly.com/python)
+
+---
+
+## 🤝 Contribución
+
+Las contribuciones son bienvenidas. Para contribuir:
+
+1. Fork el repositorio
+2. Crea una rama: `git checkout -b feature/nueva-funcionalidad`
+3. Commit cambios: `git commit -m 'Agregar nueva funcionalidad'`
+4. Push: `git push origin feature/nueva-funcionalidad`
+5. Abre un Pull Request
+
+**Guías de estilo:**
+- Python: PEP 8
+- Commits: Conventional Commits
+- Documentación: Markdown
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto es un trabajo académico para la Universidad Católica de Santa María (UCSM).
-
-**Uso Educativo**: El código puede ser usado con fines educativos citando la fuente.
+Este proyecto es de código abierto y está disponible bajo licencia MIT.
 
 ---
 
-## 👨‍💻 Autor
+## 🙏 Agradecimientos
 
-**Aron**
-Universidad Católica de Santa María
-Curso: Cálculo 2025 - Fase III
-
----
-
-## 📞 Contacto y Soporte
-
-Para preguntas sobre el proyecto:
-- Crear un [Issue](https://github.com/tu-usuario/tif-calculo-fase3/issues)
-- Consultar la [documentación](./docs/)
+- Comunidad Open Source por las herramientas
+- Desarrolladores de SymPy, SageMath, Octave y Streamlit
+- Proyecto Jupyter por la infraestructura de notebooks
 
 ---
 
-## 🎉 Agradecimientos
-
-- **UCSM** por la formación académica
-- **Comunidad Open Source** por las herramientas
-- **Desarrolladores** de SymPy, SageMath, Octave y Streamlit
-
----
-
+**Versión**: 1.0.0
 **Última actualización**: Diciembre 2025
-**Versión del proyecto**: 0.4.0 (40% completo)
-

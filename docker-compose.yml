@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # ============================================
   # Jupyter Lab - Motor Principal Python
@@ -18,8 +16,7 @@ services:
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_TOKEN=calculo2025
     command: >
-      bash -c "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser 
-      --allow-root --NotebookApp.token='calculo2025'"
+      bash -c "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='calculo2025'"
     networks:
       - calculo-network
     restart: unless-stopped
@@ -56,11 +53,9 @@ services:
       - "8889:8888"
     volumes:
       - ./shared:/home/sage/shared
-    environment:
-      - SAGE_NOTEBOOK=jupyter
-    command: >
-      bash -c "sage -jupyter notebook --ip=0.0.0.0 --port=8888 
-      --no-browser --allow-root --NotebookApp.token='calculo2025'"
+      - ./services/sagemath/notebooks:/home/sage/notebooks
+      - ./services/sagemath/start-notebook.sh:/home/sage/start-notebook.sh
+    command: bash /home/sage/start-notebook.sh
     networks:
       - calculo-network
     restart: unless-stopped
@@ -88,10 +83,3 @@ services:
 networks:
   calculo-network:
     driver: bridge
-
-# ============================================
-# Volúmenes persistentes (opcional)
-# ============================================
-volumes:
-  jupyter-data:
-  sage-data:

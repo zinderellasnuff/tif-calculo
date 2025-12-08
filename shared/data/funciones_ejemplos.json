@@ -1,0 +1,450 @@
+{
+  "metadata": {
+    "proyecto": "TIF Cálculo Fase III - Aplicaciones de la Derivada",
+    "autor": "Aron",
+    "universidad": "UCSM",
+    "curso": "Cálculo 2025",
+    "version": "1.0",
+    "fecha_creacion": "2025-12-07",
+    "descripcion": "Dataset de funciones de ejemplo para el análisis de derivadas, máximos, mínimos y puntos de inflexión"
+  },
+  "funciones": [
+    {
+      "id": 1,
+      "nombre": "f1",
+      "expresion": "x**3 - 3*x",
+      "expresion_latex": "x^3 - 3x",
+      "tipo": "polinomial",
+      "grado": 3,
+      "dominio": [-5, 5],
+      "descripcion": "Función cúbica simple con dos puntos críticos. Ejemplo clásico de máximos y mínimos locales.",
+      "caracteristicas": {
+        "puntos_criticos": [-1, 1],
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Ejemplo básico de máximos y mínimos", "Estudio de puntos de inflexión"],
+      "dificultad": "básica"
+    },
+    {
+      "id": 2,
+      "nombre": "f2",
+      "expresion": "2*x**3 + x**2 + 2*x",
+      "expresion_latex": "2x^3 + x^2 + 2x",
+      "tipo": "polinomial",
+      "grado": 3,
+      "dominio": [-5, 5],
+      "descripcion": "Polinomio cúbico sin números críticos reales. Ejemplo 2a del notebook 01_maximos_minimos.",
+      "caracteristicas": {
+        "puntos_criticos": [],
+        "tiene_maximos": false,
+        "tiene_minimos": false,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Función monótona creciente", "Análisis de dominio de derivada"],
+      "dificultad": "básica",
+      "seccion_libro": "3.1"
+    },
+    {
+      "id": 3,
+      "nombre": "f3",
+      "expresion": "3*x**2 - 12*x + 5",
+      "expresion_latex": "3x^2 - 12x + 5",
+      "tipo": "polinomial",
+      "grado": 2,
+      "dominio": [0, 3],
+      "descripcion": "Parábola para análisis de máximos y mínimos absolutos en intervalo cerrado. Ejemplo 3a del notebook.",
+      "caracteristicas": {
+        "puntos_criticos": [2],
+        "tiene_maximos": false,
+        "tiene_minimos": true,
+        "tiene_inflexion": false,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Valores extremos en intervalos cerrados", "Teorema del valor extremo"],
+      "dificultad": "básica",
+      "seccion_libro": "3.1"
+    },
+    {
+      "id": 4,
+      "nombre": "f4",
+      "expresion": "2*x**3 - 3*x**2 - 12*x + 1",
+      "expresion_latex": "2x^3 - 3x^2 - 12x + 1",
+      "tipo": "polinomial",
+      "grado": 3,
+      "dominio": [-2, 3],
+      "descripcion": "Función cúbica completa con dos puntos críticos. Ejemplo 3b del notebook 01_maximos_minimos.",
+      "caracteristicas": {
+        "puntos_criticos": [-1, 2],
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Análisis completo de extremos", "Criterio de segunda derivada"],
+      "dificultad": "intermedia",
+      "seccion_libro": "3.1"
+    },
+    {
+      "id": 5,
+      "nombre": "f5",
+      "expresion": "x + 4/x",
+      "expresion_latex": "x + \\frac{4}{x}",
+      "tipo": "racional",
+      "grado": null,
+      "dominio": [0.5, 4],
+      "descripcion": "Función racional con asíntota vertical. Ejercicio adicional del notebook.",
+      "caracteristicas": {
+        "puntos_criticos": [2],
+        "tiene_maximos": false,
+        "tiene_minimos": true,
+        "tiene_inflexion": false,
+        "continua": false,
+        "derivable": false,
+        "asintotas": ["x=0"]
+      },
+      "aplicaciones": ["Funciones con asíntotas", "Optimización con funciones racionales"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 6,
+      "nombre": "f6",
+      "expresion": "x**4 - 4*x**3 + 4*x**2",
+      "expresion_latex": "x^4 - 4x^3 + 4x^2",
+      "tipo": "polinomial",
+      "grado": 4,
+      "dominio": [-2, 4],
+      "descripcion": "Polinomio de grado 4 con múltiples extremos locales y puntos de inflexión.",
+      "caracteristicas": {
+        "puntos_criticos": [0, 1, 2],
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Funciones con múltiples extremos", "Análisis de concavidad complejo"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 7,
+      "nombre": "f7",
+      "expresion": "sin(x)",
+      "expresion_latex": "\\sin(x)",
+      "tipo": "trigonometrica",
+      "grado": null,
+      "dominio": [-6.28, 6.28],
+      "descripcion": "Función seno en el intervalo [-2π, 2π]. Función periódica básica.",
+      "caracteristicas": {
+        "puntos_criticos": "múltiples",
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "periodica": true,
+        "periodo": 6.283185307179586
+      },
+      "aplicaciones": ["Funciones periódicas", "Análisis trigonométrico"],
+      "dificultad": "básica"
+    },
+    {
+      "id": 8,
+      "nombre": "f8",
+      "expresion": "cos(x) + 0.5*x",
+      "expresion_latex": "\\cos(x) + \\frac{x}{2}",
+      "tipo": "trigonometrica",
+      "grado": null,
+      "dominio": [-10, 10],
+      "descripcion": "Combinación de función trigonométrica con lineal. Función aperiódica con comportamiento oscilatorio.",
+      "caracteristicas": {
+        "puntos_criticos": "múltiples",
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "periodica": false
+      },
+      "aplicaciones": ["Combinación de funciones", "Oscilaciones con tendencia"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 9,
+      "nombre": "f9",
+      "expresion": "x*sin(x)",
+      "expresion_latex": "x\\sin(x)",
+      "tipo": "trigonometrica",
+      "grado": null,
+      "dominio": [-15, 15],
+      "descripcion": "Producto de función lineal y trigonométrica. Amplitud creciente.",
+      "caracteristicas": {
+        "puntos_criticos": "múltiples",
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "periodica": false
+      },
+      "aplicaciones": ["Funciones con amplitud variable", "Regla del producto"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 10,
+      "nombre": "f10",
+      "expresion": "exp(-x**2)",
+      "expresion_latex": "e^{-x^2}",
+      "tipo": "exponencial",
+      "grado": null,
+      "dominio": [-3, 3],
+      "descripcion": "Función gaussiana o campana de Gauss. Distribución normal estándar no normalizada.",
+      "caracteristicas": {
+        "puntos_criticos": [0],
+        "tiene_maximos": true,
+        "tiene_minimos": false,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "asintotas": ["y=0"]
+      },
+      "aplicaciones": ["Distribución normal", "Funciones de probabilidad", "Optimización global"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 11,
+      "nombre": "f11",
+      "expresion": "2**x - x**2",
+      "expresion_latex": "2^x - x^2",
+      "tipo": "exponencial",
+      "grado": null,
+      "dominio": [-2, 5],
+      "descripcion": "Diferencia entre función exponencial y cuadrática. Ejemplo de crecimiento exponencial vs polinomial.",
+      "caracteristicas": {
+        "puntos_criticos": "aproximadamente 2",
+        "tiene_maximos": false,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Comparación de tasas de crecimiento", "Análisis asintótico"],
+      "dificultad": "avanzada"
+    },
+    {
+      "id": 12,
+      "nombre": "f12",
+      "expresion": "x*exp(-x)",
+      "expresion_latex": "xe^{-x}",
+      "tipo": "exponencial",
+      "grado": null,
+      "dominio": [0, 10],
+      "descripcion": "Producto de lineal y exponencial decreciente. Función con máximo absoluto.",
+      "caracteristicas": {
+        "puntos_criticos": [1],
+        "tiene_maximos": true,
+        "tiene_minimos": false,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "asintotas": ["y=0"]
+      },
+      "aplicaciones": ["Procesos de decaimiento", "Optimización con decaimiento exponencial"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 13,
+      "nombre": "f13",
+      "expresion": "(x**2 - 4)/(x - 2)",
+      "expresion_latex": "\\frac{x^2 - 4}{x - 2}",
+      "tipo": "racional",
+      "grado": null,
+      "dominio": [-5, 5],
+      "descripcion": "Función racional con discontinuidad evitable en x=2. Simplifica a x+2 excepto en x=2.",
+      "caracteristicas": {
+        "puntos_criticos": [],
+        "tiene_maximos": false,
+        "tiene_minimos": false,
+        "tiene_inflexion": false,
+        "continua": false,
+        "derivable": false,
+        "discontinuidades": ["x=2"]
+      },
+      "aplicaciones": ["Discontinuidades evitables", "Límites y continuidad"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 14,
+      "nombre": "f14",
+      "expresion": "x/(x**2 + 1)",
+      "expresion_latex": "\\frac{x}{x^2 + 1}",
+      "tipo": "racional",
+      "grado": null,
+      "dominio": [-5, 5],
+      "descripcion": "Función racional continua en todos los reales. Forma de campana asimétrica.",
+      "caracteristicas": {
+        "puntos_criticos": [-1, 1],
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true,
+        "asintotas": ["y=0"]
+      },
+      "aplicaciones": ["Funciones racionales continuas", "Distribución de Cauchy"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 15,
+      "nombre": "f15",
+      "expresion": "abs(x**2 - 4)",
+      "expresion_latex": "|x^2 - 4|",
+      "tipo": "polinomial",
+      "grado": 2,
+      "dominio": [-4, 4],
+      "descripcion": "Valor absoluto de parábola. Función con puntos angulosos en x=-2 y x=2.",
+      "caracteristicas": {
+        "puntos_criticos": [-2, 0, 2],
+        "tiene_maximos": true,
+        "tiene_minimos": true,
+        "tiene_inflexion": false,
+        "continua": true,
+        "derivable": false,
+        "puntos_no_derivables": [-2, 2]
+      },
+      "aplicaciones": ["Funciones con valor absoluto", "Puntos no derivables"],
+      "dificultad": "intermedia"
+    },
+    {
+      "id": 16,
+      "nombre": "f16",
+      "expresion": "x**(1/3)",
+      "expresion_latex": "\\sqrt[3]{x}",
+      "tipo": "radical",
+      "grado": null,
+      "dominio": [-8, 8],
+      "descripcion": "Función raíz cúbica. Derivada indefinida en x=0.",
+      "caracteristicas": {
+        "puntos_criticos": [0],
+        "tiene_maximos": false,
+        "tiene_minimos": false,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": false,
+        "puntos_no_derivables": [0]
+      },
+      "aplicaciones": ["Funciones radicales", "Derivadas no acotadas"],
+      "dificultad": "básica"
+    },
+    {
+      "id": 17,
+      "nombre": "f17",
+      "expresion": "t**(3/4) - 2*t**(1/4)",
+      "expresion_latex": "t^{3/4} - 2t^{1/4}",
+      "tipo": "radical",
+      "grado": null,
+      "dominio": [0, 5],
+      "descripcion": "Función con exponentes fraccionarios. Ejemplo 2b del notebook 01_maximos_minimos.",
+      "caracteristicas": {
+        "puntos_criticos": [0, 0.4444],
+        "tiene_maximos": false,
+        "tiene_minimos": true,
+        "tiene_inflexion": false,
+        "continua": true,
+        "derivable": false,
+        "puntos_no_derivables": [0]
+      },
+      "aplicaciones": ["Funciones con exponentes fraccionarios", "Derivadas inexistentes"],
+      "dificultad": "intermedia",
+      "seccion_libro": "3.1"
+    },
+    {
+      "id": 18,
+      "nombre": "f18",
+      "expresion": "ln(x**2 + 1)",
+      "expresion_latex": "\\ln(x^2 + 1)",
+      "tipo": "logaritmica",
+      "grado": null,
+      "dominio": [-5, 5],
+      "descripcion": "Función logaritmo natural compuesta. Siempre definida para x real.",
+      "caracteristicas": {
+        "puntos_criticos": [0],
+        "tiene_maximos": false,
+        "tiene_minimos": true,
+        "tiene_inflexion": true,
+        "continua": true,
+        "derivable": true
+      },
+      "aplicaciones": ["Funciones logarítmicas", "Composición de funciones"],
+      "dificultad": "intermedia"
+    }
+  ],
+  "categorias": {
+    "polinomial": {
+      "ids": [1, 2, 3, 4, 6, 15],
+      "descripcion": "Funciones polinomiales de diferentes grados",
+      "caracteristicas": "Continuas y derivables en todo su dominio"
+    },
+    "racional": {
+      "ids": [5, 13, 14],
+      "descripcion": "Cocientes de funciones polinomiales",
+      "caracteristicas": "Pueden tener asíntotas y discontinuidades"
+    },
+    "trigonometrica": {
+      "ids": [7, 8, 9],
+      "descripcion": "Funciones que involucran seno, coseno u otras funciones trigonométricas",
+      "caracteristicas": "Pueden ser periódicas, continuas y derivables"
+    },
+    "exponencial": {
+      "ids": [10, 11, 12],
+      "descripcion": "Funciones exponenciales y combinaciones con otras funciones",
+      "caracteristicas": "Crecimiento o decrecimiento exponencial"
+    },
+    "radical": {
+      "ids": [16, 17],
+      "descripcion": "Funciones con raíces o exponentes fraccionarios",
+      "caracteristicas": "Pueden tener puntos no derivables"
+    },
+    "logaritmica": {
+      "ids": [18],
+      "descripcion": "Funciones logarítmicas y composiciones",
+      "caracteristicas": "Definidas en subconjuntos de los reales"
+    }
+  },
+  "niveles_dificultad": {
+    "basica": {
+      "ids": [1, 2, 3, 7, 16],
+      "descripcion": "Funciones simples para introducción a conceptos"
+    },
+    "intermedia": {
+      "ids": [4, 5, 6, 8, 9, 10, 12, 13, 14, 15, 17, 18],
+      "descripcion": "Funciones que requieren análisis más detallado"
+    },
+    "avanzada": {
+      "ids": [11],
+      "descripcion": "Funciones complejas que requieren técnicas avanzadas"
+    }
+  },
+  "uso": {
+    "python_sympy": "from sympy import *; x = Symbol('x'); f = <expresion>; diff(f, x)",
+    "sagemath": "var('x'); f(x) = <expresion>; diff(f, x)",
+    "octave": "syms x; f = <expresion>; diff(f, x)",
+    "ejemplo": "Para f1: x**3 - 3*x en Python, 2*x^3 - 3*x en Octave/Sage"
+  },
+  "notas": [
+    "Las expresiones están en sintaxis Python/SymPy",
+    "Los dominios son sugeridos para visualización, no son restricciones matemáticas salvo para funciones racionales",
+    "Las características son aproximadas y deben verificarse mediante análisis formal",
+    "exp() representa la función exponencial e^x",
+    "ln() representa el logaritmo natural",
+    "abs() representa el valor absoluto",
+    "Para usar en SageMath o Octave, ajustar la sintaxis (** por ^, exp() por e^, etc.)"
+  ]
+}
